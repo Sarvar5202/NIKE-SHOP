@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "new_featured": "Yangi va Tavsiya etilgan",
+    "men": "Erkaklar",
+    "women": "Ayollar",
+    "kids": "Bolalar",
+    "sale": "Chegirmalar",
+    "snkrs": "SNKRS",
+    "search": "Qidiruv"
+  },
+  "home": {
+    "hello": "Nike Ilovasiga Xush Kelibsiz",
+    "download": "Barcha imkoniyatlarga ega bo'lish uchun ilovani yuklab oling",
+    "best_air_max": "Eng yaxshi Air Max"
+  },
+  "cart": {
+    "order_success": "Mahsulot muvaffaqiyatli zakaz qilindi!"
+  }
+}
