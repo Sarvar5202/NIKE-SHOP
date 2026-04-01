@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server db.json --port 3001"
+    "server": "json-server db.json --port 3001 --static public"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.1",
