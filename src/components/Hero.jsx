@@ -14,7 +14,7 @@ const Hero = () => {
       >
         <img 
           src={heroImage} 
-          alt="Nike Air Max Pulse" 
+          alt="Becent Air Max Pulse" 
           className="w-full object-cover object-center bg-[#f5f5f5]"
           style={{ height: '700px' }}
         />
@@ -29,7 +29,7 @@ const Hero = () => {
       >
         <p className="text-[15px] font-medium mb-1">First Look</p>
         <h1 className="text-[56px] font-black leading-[60px] uppercase mb-6 tracking-tight">
-          Nike Air Max Pulse
+          Becent Air Max Pulse
         </h1>
         <p className="text-[15px] leading-6 mb-8 text-[#111111]">
           Extreme comfort. Hyper durable. Max volume. Introducing the Air Max Pulse <br/> 

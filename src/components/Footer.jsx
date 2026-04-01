@@ -27,14 +27,14 @@ const Footer = () => {
               <a href="#" className="hover:text-white">Delivery</a>
               <a href="#" className="hover:text-white">Returns</a>
               <a href="#" className="hover:text-white">Payment Options</a>
-              <a href="#" className="hover:text-white">Contact Us On Nike.com Inquiries</a>
+              <a href="#" className="hover:text-white">Contact Us On Becent.com Inquiries</a>
               <a href="#" className="hover:text-white">Contact Us On All Other Inquiries</a>
             </div>
           </div>
 
           {/* Column 3 */}
           <div className="flex flex-col space-y-4">
-            <h4 className="hover:text-gray-400 cursor-pointer">About Nike</h4>
+            <h4 className="hover:text-gray-400 cursor-pointer">About Becent</h4>
             <div className="flex flex-col space-y-2 text-[#7e7e7e] normal-case font-normal text-[11px]">
               <a href="#" className="hover:text-white">News</a>
               <a href="#" className="hover:text-white">Careers</a>
@@ -68,13 +68,13 @@ const Footer = () => {
             <img src={locationIcon} alt="Location" className="w-3 h-3 mr-1" />
             India
           </span>
-          <span>© 2023 Nike, Inc. All Rights Reserved</span>
+          <span>© 2023 Becent, Inc. All Rights Reserved</span>
         </div>
         <div className="flex space-x-4 hover:text-white">
           <a href="#">Guides</a>
           <a href="#">Terms of Sale</a>
           <a href="#">Terms of Use</a>
-          <a href="#">Nike Privacy Policy</a>
+          <a href="#">Becent Privacy Policy</a>
         </div>
       </div>
     </footer>

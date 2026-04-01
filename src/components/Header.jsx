@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import nikeLogo from '../assets/nike-logo.svg';
+import BecentLogo from '../assets/Becent-logo.svg';
 import searchIcon from '../assets/search-icon.svg';
 import heartIcon from '../assets/heart-icon.svg';
 import bagIcon from '../assets/bag-icon.svg';
@@ -21,7 +21,7 @@ const Header = () => {
     <>
       <header className="header-wrapper">
         <Link to="/" className="flex items-center">
-          <img src={nikeLogo} alt="Logo" className="w-[60px] h-[60px] dark:invert" />
+          <img src={BecentLogo} alt="Logo" className="w-[60px] h-[60px] dark:invert" />
         </Link>
 
         {/* Navigation Links */}

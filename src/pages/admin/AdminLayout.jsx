@@ -27,7 +27,7 @@ const AdminLayout = () => {
     <Layout style={{ minHeight: '100vh' }}>
       <Sider theme="light" width={250} className="shadow-md">
         <div className="p-4 text-center mt-2 mb-4">
-          <Title level={4} style={{ margin: 0 }}>Nike Admin</Title>
+          <Title level={4} style={{ margin: 0 }}>Becent Admin</Title>
         </div>
         <Menu
           mode="inline"
