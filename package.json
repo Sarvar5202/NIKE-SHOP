@@ -8,15 +8,15 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server db.json --port 3001 --static public"
+    "server": "json-server db.json --port 4444 --host 127.0.0.1 --static public"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.1",
-    "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.2.2",
     "@tanstack/react-query": "^5.96.0",
     "antd": "^6.3.5",
     "axios": "^1.14.0",
+    "chart.js": "^4.5.1",
     "express": "^5.2.1",
     "formik": "^2.4.9",
     "framer-motion": "^12.38.0",
@@ -24,13 +24,14 @@
     "json-server": "^1.0.0-beta.15",
     "lucide-react": "^1.7.0",
     "react": "^19.2.4",
+    "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.2.4",
     "react-i18next": "^17.0.2",
-    "react-redux": "^9.2.0",
     "react-router-dom": "^7.13.2",
     "react-toastify": "^11.0.5",
     "tailwindcss": "^4.2.2",
-    "yup": "^1.7.1"
+    "yup": "^1.7.1",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

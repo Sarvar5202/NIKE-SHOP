@@ -5,8 +5,10 @@ import BecentLogo from '../assets/Becent-logo.svg';
 import searchIcon from '../assets/search-icon.svg';
 import heartIcon from '../assets/heart-icon.svg';
 import bagIcon from '../assets/bag-icon.svg';
+import useCartStore from '../store/useCartStore';
 
 const Header = () => {
+  const items = useCartStore((state) => state.items);
   const { t, i18n } = useTranslation();
 
   const handleLanguageChange = (e) => {
@@ -62,9 +64,14 @@ const Header = () => {
           <button className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
             <img src={heartIcon} alt="Heart" className="w-6 h-6 dark:invert" />
           </button>
-          <button className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors relative">
+          <Link to="/cart" className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors relative flex">
             <img src={bagIcon} alt="Bag" className="w-6 h-6 dark:invert" />
-          </button>
+            {items.length > 0 && (
+              <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                {items.length}
+              </span>
+            )}
+          </Link>
         </div>
       </header>
 

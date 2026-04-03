@@ -3,8 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import api from '../api/axios';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../store/cartSlice';
+import useCartStore from '../store/useCartStore';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +13,7 @@ const CLOTHING_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const addToCart = useCartStore((state) => state.addToCart);
   const sliderRef = useRef(null);
   const { t } = useTranslation();
 
@@ -55,10 +54,10 @@ const ProductDetail = () => {
         total: product.price * quantity,
       };
       await api.post('/orders', order);
-      dispatch(addToCart({ ...product, quantity, size: selectedSize }));
+      addToCart({ ...product, quantity, size: selectedSize, orderedAt: new Date().toISOString() });
       toast.success(t('cart.order_success') || 'Product zakaz qilindi!');
       setOrdered(true);
-      setTimeout(() => navigate('/'), 1500);
+      setTimeout(() => navigate('/cart'), 500);
     } catch (err) {
       console.error(err);
       toast.error('Xatolik yuz berdi!');

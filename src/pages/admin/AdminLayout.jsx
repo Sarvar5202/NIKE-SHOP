@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { Layout, Menu, Typography, Button } from 'antd';
-import { AppstoreOutlined, ShoppingCartOutlined, LogoutOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, ShoppingCartOutlined, LogoutOutlined, DashboardOutlined } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -11,6 +11,11 @@ const AdminLayout = () => {
   const location = useLocation();
 
   const menuItems = [
+    {
+      key: '/admin/dashboard',
+      icon: <DashboardOutlined />,
+      label: <Link to="/admin/dashboard">Dashboard</Link>,
+    },
     {
       key: '/admin/products',
       icon: <AppstoreOutlined />,
