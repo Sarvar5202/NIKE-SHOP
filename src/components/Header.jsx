@@ -64,11 +64,15 @@ const Header = () => {
           <button className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
             <img src={heartIcon} alt="Heart" className="w-6 h-6 dark:invert" />
           </button>
-          <Link to="/cart" className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors relative flex">
+          <Link 
+            to="/cart" 
+            className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors relative flex items-center justify-center"
+            title="View Bag"
+          >
             <img src={bagIcon} alt="Bag" className="w-6 h-6 dark:invert" />
-            {items.length > 0 && (
-              <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
-                {items.length}
+            {items.reduce((acc, curr) => acc + (curr.quantity || 1), 0) > 0 && (
+              <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-gray-900">
+                {items.reduce((acc, curr) => acc + (curr.quantity || 1), 0)}
               </span>
             )}
           </Link>

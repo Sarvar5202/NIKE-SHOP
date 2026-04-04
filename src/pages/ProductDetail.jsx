@@ -18,10 +18,8 @@ const ProductDetail = () => {
   const { t } = useTranslation();
 
   const [selectedSize, setSelectedSize] = useState('L');
-  const [quantity, setQuantity] = useState(1);
   const [isFavourite, setIsFavourite] = useState(false);
   const [showSizeError, setShowSizeError] = useState(false);
-  const [ordered, setOrdered] = useState(false);
 
   const { data: product, isLoading, isError } = useQuery({
     queryKey: ['product', id],
@@ -41,27 +39,35 @@ const ProductDetail = () => {
   });
 
   const relatedProducts = allProducts
-    .filter(p => p.id !== id)
+    .filter(p => String(p.id) !== String(id))
     .slice(0, 8);
 
-  const handleCheckout = async () => {
-    if (!selectedSize) { setShowSizeError(true); return; }
-    try {
-      const order = {
-        date: new Date().toISOString(),
-        status: 'Processing',
-        items: [{ productId: Number(id), quantity }],
-        total: product.price * quantity,
-      };
-      await api.post('/orders', order);
-      addToCart({ ...product, quantity, size: selectedSize, orderedAt: new Date().toISOString() });
-      toast.success(t('cart.order_success') || 'Product zakaz qilindi!');
-      setOrdered(true);
-      setTimeout(() => navigate('/cart'), 500);
-    } catch (err) {
-      console.error(err);
-      toast.error('Xatolik yuz berdi!');
+  const handleAddToBag = () => {
+    if (!selectedSize) { 
+      setShowSizeError(true); 
+      return; 
     }
+    
+    addToCart({ 
+      ...product, 
+      quantity: 1, 
+      size: selectedSize, 
+      addedAt: new Date().toISOString() 
+    });
+    
+    toast.success(t('cart.added_to_bag') || 'Savatga qo\'shildi!', {
+      position: "bottom-right",
+      autoClose: 3000,
+    });
+  };
+
+  const handleBuyNow = () => {
+    if (!selectedSize) { 
+      setShowSizeError(true); 
+      return; 
+    }
+    handleAddToBag();
+    navigate('/cart');
   };
 
   const scrollSlider = (dir) => {
@@ -72,10 +78,10 @@ const ProductDetail = () => {
 
   if (isLoading) return (
     <div className="flex items-center justify-center min-h-[60vh]">
-      <div style={{ width: 40, height: 40, border: '3px solid #e5e5e5', borderTopColor: '#111', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <div className="w-10 h-10 border-4 border-[#e5e5e5] border-t-[#111] rounded-full animate-spin" />
     </div>
   );
+  
   if (isError || !product) return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
       <p className="text-lg text-[#666]">Product not found.</p>
@@ -84,165 +90,113 @@ const ProductDetail = () => {
   );
 
   const sizes = product.category === 'Clothing' ? CLOTHING_SIZES : SHOE_SIZES;
-  const subtotal = product.price * quantity;
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="bg-white min-h-screen"
+      className="bg-white min-h-screen pt-10"
     >
-      {/* Banner */}
-      <div className="max-w-[1240px] mx-auto px-10 pt-4">
-        <div className="bg-[#f5f5f5] p-3 rounded-sm flex items-center justify-between">
-          <div className="flex flex-col">
-            <span className="text-[13px] font-medium text-[#111]">Free Delivery</span>
-            <span className="text-[11px] text-[#111]">
-              Applies to orders of ₹ 14 000.00 or more. <button className="underline font-medium decoration-1">View details</button>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-[1240px] mx-auto px-10 py-4 flex flex-col lg:flex-row gap-10">
+      <div className="max-w-[1240px] mx-auto px-6 lg:px-10 flex flex-col lg:flex-row gap-12 mb-20">
         
-        {/* LEFT: Items */}
-        <div className="flex-1">
-          <h1 className="text-[22px] font-medium text-[#111] mb-6">Bag</h1>
-
-          {/* Item Row */}
-          <div className="flex gap-6 py-6 items-start">
-            {/* Image */}
-            <div className="w-[150px] h-[150px] bg-[#f5f5f5] flex-shrink-0 flex items-center justify-center">
-              <img 
-                src={product.image} 
-                alt={product.name} 
-                className="w-[90%] h-[90%] object-contain"
-              />
-            </div>
-
-            {/* Info */}
-            <div className="flex-1">
-              <div className="flex justify-between items-start">
-                <div className="flex flex-col gap-0.5">
-                  <h2 className="text-[15px] font-medium text-[#111]">{product.name}</h2>
-                  <p className="text-[15px] text-[#757575]">{product.category === 'Shoes' ? "Men's Shoes" : product.category}</p>
-                  <p className="text-[15px] text-[#757575]">{product.description?.split('.')[0]}</p>
-                  
-                  <div className="flex gap-10 mt-2 text-[15px] text-[#757575]">
-                    <div className="flex items-center gap-2">
-                      <span>Size</span>
-                      <select 
-                        value={selectedSize} 
-                        onChange={e => setSelectedSize(e.target.value)}
-                        className="bg-transparent border-none outline-none text-[#757575] cursor-pointer"
-                      >
-                        {sizes.map(s => <option key={s} value={s}>{s}</option>)}
-                      </select>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span>Quantity</span>
-                      <select 
-                        value={quantity} 
-                        onChange={e => setQuantity(Number(e.target.value))}
-                        className="bg-transparent border-none outline-none text-[#757575] cursor-pointer"
-                      >
-                        {[1,2,3,4,5,6,7,8,9,10].map(q => <option key={q} value={q}>{q}</option>)}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Action Icons */}
-                  <div className="flex gap-4 mt-4">
-                    <button onClick={() => setIsFavourite(!isFavourite)} className="hover:opacity-70">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill={isFavourite ? "#111" : "none"} stroke="#111" strokeWidth="1.5">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                      </svg>
-                    </button>
-                    <button className="hover:opacity-70">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5">
-                        <polyline points="3 6 5 6 21 6" />
-                        <path d="M19 6l-1 14H6L5 6" />
-                        <path d="M10 11v6M14 11v6" />
-                        <path d="M9 6V4h6v2" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
-                <div className="text-[15px] text-[#111]">
-                  MRP: ₹ {product.price.toLocaleString('en-IN')}.00
-                </div>
-              </div>
-            </div>
+        {/* LEFT: Images */}
+        <div className="flex-1 flex flex-col gap-4">
+          <div className="aspect-square w-full bg-[#f5f5f5] flex items-center justify-center overflow-hidden rounded-lg">
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className="w-[85%] h-[85%] object-contain hover:scale-110 transition-transform duration-700"
+            />
           </div>
-
-          <div className="border-b border-[#e5e5e5] my-2" />
-
-          {/* Favourites Section */}
-          <div className="mt-12">
-            <h2 className="text-[19px] font-medium text-[#111] mb-2">Favourites</h2>
-            <p className="text-[15px] text-[#111]">There are no items saved to your favourites.</p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="aspect-square bg-[#f5f5f5] rounded-lg animate-pulse" />
+            <div className="aspect-square bg-[#f5f5f5] rounded-lg animate-pulse" />
           </div>
         </div>
 
-        {/* RIGHT: Summary */}
-        <aside className="w-full lg:w-[350px]">
-          <h2 className="text-[21px] font-medium text-[#111] mb-6">Summary</h2>
-          
-          <div className="flex flex-col gap-3 text-[15px] text-[#111]">
-            <div className="flex justify-between">
-              <span>Subtotal</span>
-              <span>₹ {subtotal.toLocaleString('en-IN')}.00</span>
+        {/* RIGHT: Product Info */}
+        <div className="w-full lg:w-[440px] flex flex-col">
+          <div className="mb-8">
+            <h1 className="text-[28px] font-medium leading-tight mb-2">{product.name}</h1>
+            <p className="text-[16px] text-[#111] mb-2">{product.category === 'Shoes' ? "Men's Shoes" : product.category}</p>
+            <div className="text-[20px] font-medium mt-4">
+              MRP: ₹ {product.price.toLocaleString('en-IN')}.00
             </div>
-            <div className="flex justify-between">
-              <span>Estimated Delivery & Handling</span>
-              <span>Free</span>
+            <p className="text-[14px] text-[#757575] mt-1">incl. of all taxes</p>
+            <p className="text-[14px] text-[#757575]">(Also includes all applicable duties)</p>
+          </div>
+
+          {/* Size Selection */}
+          <div className="mb-10">
+            <div className="flex justify-between items-center mb-4">
+              <span className={`text-[16px] font-medium ${showSizeError && !selectedSize ? 'text-red-500' : ''}`}>
+                Select Size
+              </span>
+              <button className="text-[16px] text-[#757575] hover:text-[#111] underline underline-offset-4 decoration-1">Size Guide</button>
             </div>
-            
-            <div className="border-b border-[#e5e5e5] my-2" />
-            
-            <div className="flex justify-between py-2 border-y border-[#e5e5e5]">
-              <span>Total</span>
-              <span className="font-medium">₹ {subtotal.toLocaleString('en-IN')}.00</span>
+            <div className="grid grid-cols-3 gap-2">
+              {sizes.map((size) => (
+                <button
+                  key={size}
+                  onClick={() => { setSelectedSize(size); setShowSizeError(false); }}
+                  className={`py-3 text-[14px] font-medium rounded-sm border transition-all ${
+                    selectedSize === size 
+                      ? 'border-[#111] bg-[#111] text-white' 
+                      : 'border-[#e5e5e5] hover:border-[#111] bg-white text-[#111]'
+                  }`}
+                >
+                  {size}
+                </button>
+              ))}
             </div>
           </div>
 
-          <button 
-            onClick={handleCheckout}
-            disabled={ordered}
-            className={`w-full rounded-full py-4 mt-8 font-medium transition-all duration-300 ${
-              ordered 
-                ? 'bg-green-600 text-white cursor-default' 
-                : 'bg-black text-white hover:bg-[#333] cursor-pointer'
-            }`}
-          >
-            {ordered ? 'Buyurtma berildi! ✓' : 'Member Checkout'}
-          </button>
-        </aside>
-
-      </div>
-
-      {/* You Might Also Like Section */}
-      <div className="max-w-[1240px] mx-auto px-10 py-12 mt-10">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-[19px] font-medium text-[#111]">You Might Also Like</h2>
-          <div className="flex gap-3">
+          {/* Action Buttons */}
+          <div className="flex flex-col gap-3">
             <button 
-              onClick={() => scrollSlider(-1)}
-              className="w-[48px] h-[48px] rounded-full bg-[#f5f5f5] flex items-center justify-center hover:bg-[#e5e5e5]"
+              onClick={handleAddToBag}
+              className="w-full bg-black text-white py-4 rounded-full font-medium text-[16px] transition-transform active:scale-95 hover:bg-[#333]"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5">
-                <polyline points="15 18 9 12 15 6" />
+              Add to Bag
+            </button>
+            <button 
+              onClick={() => setIsFavourite(!isFavourite)}
+              className="w-full bg-white text-black border border-[#e5e5e5] py-4 rounded-full font-medium text-[16px] flex items-center justify-center gap-2 hover:border-[#111] transition-all"
+            >
+              Favourite 
+              <svg width="20" height="20" viewBox="0 0 24 24" fill={isFavourite ? "#111" : "none"} stroke="#111" strokeWidth="1.5">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
               </svg>
             </button>
             <button 
-              onClick={() => scrollSlider(1)}
-              className="w-[48px] h-[48px] rounded-full bg-[#f5f5f5] flex items-center justify-center hover:bg-[#e5e5e5]"
+              onClick={handleBuyNow}
+              className="w-full bg-blue-600 text-white py-4 rounded-full font-medium text-[16px] mt-2 transition-transform active:scale-95 hover:bg-blue-700"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
+              Buy Now
+            </button>
+          </div>
+
+          <div className="mt-12 text-[16px] leading-[1.6] text-[#111]">
+            <p>{product.description}</p>
+            <ul className="list-disc pl-5 mt-6 flex flex-col gap-2">
+              <li>Colour Shown: Multi-Colour/Black</li>
+              <li>Style: DZ4549-001</li>
+              <li className="underline cursor-pointer font-medium mt-2">View Product Details</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Related Products */}
+      <div className="max-w-[1240px] mx-auto px-6 lg:px-10 py-12 border-t">
+        <div className="flex justify-between items-center mb-10">
+          <h2 className="text-[20px] font-medium">You Might Also Like</h2>
+          <div className="flex gap-3">
+            <button onClick={() => scrollSlider(-1)} className="w-12 h-12 rounded-full border border-[#e5e5e5] flex items-center justify-center hover:bg-[#f5f5f5]">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5"><polyline points="15 18 9 12 15 6" /></svg>
+            </button>
+            <button onClick={() => scrollSlider(1)} className="w-12 h-12 rounded-full border border-[#e5e5e5] flex items-center justify-center hover:bg-[#f5f5f5]">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5"><polyline points="9 18 15 12 9 6" /></svg>
             </button>
           </div>
         </div>
@@ -252,25 +206,13 @@ const ProductDetail = () => {
           className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth snap-x"
         >
           {relatedProducts.map((p) => (
-            <Link 
-              to={`/product/${p.id}`} 
-              key={p.id} 
-              className="min-w-[430px] snap-start mb-10"
-            >
-              <div className="aspect-square bg-[#f5f5f5] mb-4 flex items-center justify-center overflow-hidden">
-                <img 
-                  src={p.image} 
-                  alt={p.name} 
-                  className="w-[90%] h-[90%] object-contain hover:scale-105 transition-transform duration-500" 
-                />
+            <Link to={`/product/${p.id}`} key={p.id} className="min-w-[320px] lg:min-w-[380px] snap-start group">
+              <div className="aspect-square bg-[#f5f5f5] mb-4 flex items-center justify-center rounded-lg overflow-hidden">
+                <img src={p.image} alt={p.name} className="w-[85%] h-[85%] object-contain group-hover:scale-105 transition-transform duration-500" />
               </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="text-[15px] font-medium text-[#111]">{p.name}</h3>
-                <p className="text-[15px] text-[#757575]">{p.category === 'Shoes' ? "Men's Shoes" : p.category}</p>
-                <div className="text-[15px] font-medium text-[#111] mt-1">
-                  MRP : ₹ {p.price.toLocaleString('en-IN')}.00
-                </div>
-              </div>
+              <h3 className="text-[15px] font-medium text-[#111]">{p.name}</h3>
+              <p className="text-[15px] text-[#757575]">{p.category}</p>
+              <div className="text-[15px] font-medium mt-1">₹ {p.price.toLocaleString('en-IN')}</div>
             </Link>
           ))}
         </div>
@@ -280,4 +222,5 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
 
