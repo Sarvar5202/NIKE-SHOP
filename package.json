@@ -21,7 +21,7 @@
     "formik": "^2.4.9",
     "framer-motion": "^12.38.0",
     "i18next": "^26.0.3",
-    "json-server": "^1.0.0-beta.15",
+    "json-server": "^0.17.4",
     "lucide-react": "^1.7.0",
     "react": "^19.2.4",
     "react-chartjs-2": "^5.3.1",
