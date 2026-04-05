@@ -2,7 +2,7 @@
   "products": [
     {
       "id": "1",
-      "name": "Becent Air Force 1 Mid '07",
+      "name": "NIKE Air Force 1 Mid '07",
       "category": "Shoes",
       "price": 10795,
       "description": "Classic mid-top sneaker with durable leather and iconic style.",
@@ -11,7 +11,7 @@
       "rating": 4.6
     },
     {
-      "name": "Becent Court Vision Low Next Nature",
+      "name": "NIKE Court Vision Low Next Nature",
       "price": 4995,
       "category": "Shoes",
       "image": "/images/products/2.jpg",
@@ -20,7 +20,7 @@
     },
     {
       "id": "3",
-      "name": "Becent Air Force 1 PLT.AF.ORM",
+      "name": "NIKE Air Force 1 PLT.AF.ORM",
       "category": "Shoes",
       "price": 8695,
       "description": "Platform version of the iconic Air Force 1 with elevated sole.",
@@ -30,7 +30,7 @@
     },
     {
       "id": "4",
-      "name": "Becent Air Force 1 React",
+      "name": "NIKE Air Force 1 React",
       "category": "Shoes",
       "price": 13295,
       "description": "Enhanced comfort with React foam cushioning.",
@@ -50,7 +50,7 @@
     },
     {
       "id": "6",
-      "name": "Becent Standard Issue Jersey",
+      "name": "NIKE Standard Issue Jersey",
       "category": "Clothing",
       "price": 2895,
       "description": "Lightweight women's basketball jersey with breathable fabric.",
@@ -60,7 +60,7 @@
     },
     {
       "id": "7",
-      "name": "Becent Dunk Low Retro SE",
+      "name": "NIKE Dunk Low Retro SE",
       "category": "Shoes",
       "price": 9695,
       "description": "Stylish low-top sneaker with premium finish.",
@@ -70,7 +70,7 @@
     },
     {
       "id": "8",
-      "name": "Becent Dri-FIT UV Hyverse",
+      "name": "NIKE Dri-FIT UV Hyverse",
       "category": "Clothing",
       "price": 2495,
       "description": "Men's short-sleeve fitness top with sweat-wicking technology.",
@@ -80,7 +80,7 @@
     },
     {
       "id": "9",
-      "name": "Becent Court Vision Low",
+      "name": "NIKE Court Vision Low",
       "category": "Shoes",
       "price": 5695,
       "description": "Classic low-top sneaker inspired by old-school basketball.",
@@ -90,7 +90,7 @@
     },
     {
       "id": "10",
-      "name": "Becent Dri-FIT Ready",
+      "name": "NIKE Dri-FIT Ready",
       "category": "Clothing",
       "price": 2495,
       "description": "Comfortable men's training t-shirt for everyday workouts.",
@@ -100,7 +100,7 @@
     },
     {
       "id": "11",
-      "name": "Becent One Leak Protection Period Shorts",
+      "name": "NIKE One Leak Protection Period Shorts",
       "category": "Clothing",
       "price": 3395,
       "description": "Women's biker shorts with leak protection and comfort fit.",
@@ -110,7 +110,7 @@
     },
     {
       "id": "12",
-      "name": "Becent Air Force 1 LV8 3",
+      "name": "NIKE Air Force 1 LV8 3",
       "category": "Shoes",
       "price": 7495,
       "description": "Kids' version of the classic Air Force 1 with bold design.",
@@ -120,7 +120,7 @@
     },
     {
       "id": "13",
-      "name": "Becent Blazer Low Platform",
+      "name": "NIKE Blazer Low Platform",
       "category": "Shoes",
       "price": 8195,
       "description": "Women's platform sneaker with a classic Blazer silhouette.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "14",
-      "name": "Becent Air Force 1 '07",
+      "name": "NIKE Air Force 1 '07",
       "category": "Shoes",
       "price": 8195,
       "description": "Women's classic Air Force 1 with timeless design and comfort.",
@@ -140,7 +140,7 @@
     },
     {
       "id": "15",
-      "name": "Becent Pro Dri-FIT Sleeveless Top",
+      "name": "NIKE Pro Dri-FIT Sleeveless Top",
       "category": "Clothing",
       "price": 1495,
       "description": "Men's tight-fit sleeveless training top with sweat-wicking tech.",
@@ -150,7 +150,7 @@
     },
     {
       "id": "16",
-      "name": "Becent Dunk Low Retro",
+      "name": "NIKE Dunk Low Retro",
       "category": "Shoes",
       "price": 8695,
       "description": "Men's classic Dunk Low with bold color blocking.",
@@ -160,7 +160,7 @@
     },
     {
       "id": "17",
-      "name": "Becent Air Max SC",
+      "name": "NIKE Air Max SC",
       "category": "Shoes",
       "price": 5995,
       "description": "Women's everyday sneaker with visible Air cushioning.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "18",
-      "name": "Becent Dri-FIT UV Miler",
+      "name": "NIKE Dri-FIT UV Miler",
       "category": "Clothing",
       "price": 1695,
       "description": "Men's running t-shirt with UV protection and breathable fabric.",
@@ -180,7 +180,7 @@
     },
     {
       "id": "19",
-      "name": "Becent Air Max SYSTM",
+      "name": "NIKE Air Max SYSTM",
       "category": "Shoes",
       "price": 6495,
       "description": "Kids' Air Max sneaker with retro-inspired design.",
@@ -190,7 +190,7 @@
     },
     {
       "id": "20",
-      "name": "Becent Alate All U Sports Bra",
+      "name": "NIKE Alate All U Sports Bra",
       "category": "Clothing",
       "price": 2195,
       "description": "Women's light-support sports bra with soft and flexible fit.",
@@ -200,7 +200,7 @@
     },
     {
       "id": "21",
-      "name": "Becent Court Legacy Lift",
+      "name": "NIKE Court Legacy Lift",
       "category": "Shoes",
       "price": 7495,
       "description": "Women's platform sneaker with classic court style.",
@@ -210,7 +210,7 @@
     },
     {
       "id": "22",
-      "name": "Becent Swoosh Sports Bra Tank",
+      "name": "NIKE Swoosh Sports Bra Tank",
       "category": "Clothing",
       "price": 3095,
       "description": "Women's medium-support padded sports bra tank.",
@@ -220,7 +220,7 @@
     },
     {
       "id": "23",
-      "name": "Becent SB Zoom Janoski OG+",
+      "name": "NIKE SB Zoom Janoski OG+",
       "category": "Shoes",
       "price": 8595,
       "description": "Skateboarding shoe with Zoom Air cushioning.",
@@ -230,7 +230,7 @@
     },
     {
       "id": "24",
-      "name": "Becent Dri-FIT Run Division Rise 365 Tank",
+      "name": "NIKE Dri-FIT Run Division Rise 365 Tank",
       "category": "Clothing",
       "price": 3495,
       "description": "Men's lightweight running tank for high performance.",
@@ -240,7 +240,7 @@
     },
     {
       "id": "25",
-      "name": "Becent Dri-FIT Challenger Shorts",
+      "name": "NIKE Dri-FIT Challenger Shorts",
       "category": "Clothing",
       "price": 2495,
       "description": "Men's versatile 2-in-1 running shorts with Dri-FIT technology.",
@@ -260,7 +260,7 @@
     },
     {
       "id": "27",
-      "name": "Becent Outdoor Play Jacket",
+      "name": "NIKE Outdoor Play Jacket",
       "category": "Clothing",
       "price": 3895,
       "description": "Kids' oversized woven jacket for outdoor activities.",
@@ -270,7 +270,7 @@
     },
     {
       "id": "28",
-      "name": "Becent Sportswear Trend Shorts",
+      "name": "NIKE Sportswear Trend Shorts",
       "category": "Clothing",
       "price": 2495,
       "description": "Girls' high-waisted woven shorts with casual fit.",
@@ -280,7 +280,7 @@
     },
     {
       "id": "29",
-      "name": "Becent Blazer Low '77 Jumbo",
+      "name": "NIKE Blazer Low '77 Jumbo",
       "category": "Shoes",
       "price": 8595,
       "description": "Women's Blazer with oversized Swoosh design.",
@@ -290,7 +290,7 @@
     },
     {
       "id": "30",
-      "name": "Becent SB Force 58",
+      "name": "NIKE SB Force 58",
       "category": "Shoes",
       "price": 5995,
       "description": "Durable skate shoe with flexible sole and great board feel.",
@@ -300,7 +300,7 @@
     },
     {
       "id": "31",
-      "name": "Becent Dri-FIT Run Division Challenger Shorts",
+      "name": "NIKE Dri-FIT Run Division Challenger Shorts",
       "category": "Clothing",
       "price": 2495,
       "description": "Men's running shorts with lightweight and breathable fabric.",
@@ -310,7 +310,7 @@
     },
     {
       "id": "32",
-      "name": "Becent Legend Essential 3 Next Nature",
+      "name": "NIKE Legend Essential 3 Next Nature",
       "category": "Shoes",
       "price": 4995,
       "description": "Men's training shoes designed for gym and workouts.",
@@ -320,7 +320,7 @@
     },
     {
       "id": "33",
-      "name": "Becent Air Max SYSTM (Women)",
+      "name": "NIKE Air Max SYSTM (Women)",
       "category": "Shoes",
       "price": 8595,
       "description": "Women's Air Max sneaker with modern cushioning.",
@@ -330,7 +330,7 @@
     },
     {
       "id": "34",
-      "name": "Becent Dri-FIT Totality Shorts",
+      "name": "NIKE Dri-FIT Totality Shorts",
       "category": "Clothing",
       "price": 1795,
       "description": "Men's unlined training shorts for everyday workouts.",
@@ -684,14 +684,14 @@
       "items": [
         {
           "productId": "1",
-          "name": "Becent Air Force 1 Mid '07",
+          "name": "NIKE Air Force 1 Mid '07",
           "quantity": 1,
           "size": "L",
           "price": 10795
         },
         {
           "productId": "2",
-          "name": "Becent Court Vision Low Next Nature",
+          "name": "NIKE Court Vision Low Next Nature",
           "quantity": 1,
           "size": "UK 9",
           "price": 4995

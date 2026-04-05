@@ -1,51 +1,60 @@
 import React from 'react';
+import heroImg from '../assets/hero-image.png';
 import { motion } from 'framer-motion';
-import heroImage from '../assets/hero-image.png';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className="flex flex-col items-center pb-[84px]">
-      {/* Main Image */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full relative px-10"
-      >
-        <img 
-          src={heroImage} 
-          alt="Becent Air Max Pulse" 
-          className="w-full object-cover object-center bg-[#f5f5f5]"
-          style={{ height: '700px' }}
+    <div className="w-full flex flex-col items-center bg-white dark:bg-black transition-colors duration-300">
+      <div className="w-full px-10">
+        <motion.img 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          src={heroImg} 
+          alt="NIKE Air Max Pulse" 
+          className="w-full object-cover rounded-md" 
         />
-      </motion.div>
+      </div>
 
-      {/* Text Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="mt-12 flex flex-col items-center text-center max-w-[800px] px-4"
-      >
-        <p className="text-[15px] font-medium mb-1">First Look</p>
-        <h1 className="text-[56px] font-black leading-[60px] uppercase mb-6 tracking-tight">
-          Becent Air Max Pulse
-        </h1>
-        <p className="text-[15px] leading-6 mb-8 text-[#111111]">
-          Extreme comfort. Hyper durable. Max volume. Introducing the Air Max Pulse <br/> 
-          —designed to push you past your limits and help you go to the max.
-        </p>
+      <div className="flex flex-col items-center py-12 px-6 text-center max-w-[800px]">
+        <motion.span 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="text-[15px] font-medium mb-2 dark:text-gray-300"
+        >
+          {t('hero.first_look')}
+        </motion.span>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-[48px] md:text-[56px] font-bold leading-[1.1] mb-6 uppercase dark:text-white"
+        >
+          {t('hero.title')}
+        </motion.h1>
 
-        {/* Buttons */}
-        <div className="flex space-x-4">
-          <button className="bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors">
-            Notify Me
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="text-[16px] mb-8 dark:text-gray-400"
+        >
+          {t('hero.description')}
+        </motion.p>
+
+        <div className="flex space-x-2">
+          <button className="bg-black text-white dark:bg-white dark:text-black px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors">
+            {t('hero.notify_me')}
           </button>
-          <button className="bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors">
-            Shop Air Max
+          <button className="bg-black text-white dark:bg-white dark:text-black px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors">
+            {t('hero.shop_air_max')}
           </button>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -9,11 +9,86 @@
     "search": "Qidiruv"
   },
   "home": {
-    "hello": "Becent Ilovasiga Xush Kelibsiz",
-    "download": "Barcha imkoniyatlarga ega bo'lish uchun ilovani yuklab oling",
+    "hello": "NIKE ILOVASIGA XUSH KELIBSIZ",
+    "download": "Barcha imkoniyatlarga ega bo'lish uchun ilovani yuklab oling. O'zingga ishon",
     "best_air_max": "Eng yaxshi Air Max"
   },
+  "hero": {
+    "first_look": "Birinchi ko'rinish",
+    "title": "NIKE Air Max Pulse",
+    "description": "Ekstremal qulaylik. O'ta chidamli. Maksimal hajm. Air Max Pulse — o'z chegaralaringizdan o'tishga va maksimal natijaga erishishingizga yordam berish uchun yaratilgan.",
+    "notify_me": "Menga xabar ber",
+    "shop_air_max": "Air Max sotib olish"
+  },
+  "featured": {
+    "title": "Tavsiya etilgan",
+    "promo_title": "O'zingga yoqqan narsani tanla",
+    "promo_description": "Chunki har bir kishi mukammal juftlikda yugurish hissini bilishi kerak.",
+    "find_your_shoe": "Oyoq kiyimini toping"
+  },
+  "gear_up": {
+    "title": "Tayyorgarlik ko'ring",
+    "shop_men": "Erkaklar kiyimlari",
+    "shop_women": "Ayollar kiyimlari"
+  },
+  "dont_miss": {
+    "title": "O'tkazib yubormang",
+    "promo_title": "Parvoz elementlari",
+    "promo_description": "Uzoq vaqtga chidash uchun yaratilgan, bir haftalik kiyimlar — Jordon brendi taqdim etuvchi o'ziga xos uslub bilan.",
+    "shop": "Xarid qilish"
+  },
+  "essentials": {
+    "title": "Eng asosiylari",
+    "men": "Erkaklar uchun",
+    "women": "Ayollar uchun",
+    "kids": "Bolalar uchun"
+  },
+  "footer": {
+    "find_store": "Do'kon toping",
+    "become_member": "A'zo bo'ling",
+    "signup_email": "Email orqali ro'yxatdan o'ting",
+    "feedback": "Fikringizni qoldiring",
+    "student_discounts": "Talabalar uchun chegirmalar",
+    "get_help": "Yordam olish",
+    "order_status": "Buyurtma holati",
+    "delivery": "Yetkazib berish",
+    "returns": "Qaytarish",
+    "payment_options": "To'lov imkoniyatlari",
+    "contact_inquiries": "NIKE.com buyurtmalari bo'yicha bog'lanish",
+    "contact_other": "Boshqa barcha so'rovlar bo'yicha bog'lanish",
+    "about": "NIKE haqida",
+    "news": "Yangiliklar",
+    "careers": "Karyera",
+    "investors": "Investorlar",
+    "sustainability": "Barqarorlik",
+    "guides": "Qo'llanmalar",
+    "terms_sale": "Sotish shartlari",
+    "terms_use": "Foydalanish shartlari",
+    "privacy_policy": "NIKE maxfiylik siyosati"
+  },
+  "product": {
+    "mrp": "MRP",
+    "incl_taxes": "barcha soliqlarni o'z ichiga oladi",
+    "duties": "(Barcha tegishli bojlarni ham o'z ichiga oladi)",
+    "select_size": "O'lchamni tanlang",
+    "size_guide": "O'lcham qo'llanmasi",
+    "add_to_bag": "Savatga qo'shish",
+    "favourite": "Sevimlilarga qo'shish",
+    "buy_now": "Hozir sotib oling",
+    "related_title": "Sizga ham yoqishi mumkin",
+    "view_details": "Mahsulot tafsilotlarini ko'rish"
+  },
   "cart": {
-    "order_success": "Mahsulot muvaffaqiyatli zakaz qilindi!"
+    "bag": "Savat",
+    "empty": "Savatingiz bo'sh.",
+    "shop_new": "Yangi kelganlarni ko'rish",
+    "summary": "Xulosa",
+    "subtotal": "Oraliq jami",
+    "delivery_handling": "Taxminiy yetkazib berish narxi",
+    "total": "Jami",
+    "checkout": "Xaridni yakunlash",
+    "checkout_processing": "Jarayon...",
+    "order_success": "Buyurtma muvaffaqiyatli qabul qilindi!",
+    "terms_agreement": "Xaridni yakunlash orqali siz NIKE xizmat ko'rsatish shartlari va maxfiylik siyosatiga rozilik bildirasiz. Barcha a'zo bo'lganlarning buyurtmalari bepul yetkazib beriladi."
   }
 }

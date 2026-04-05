@@ -5,6 +5,7 @@ import api from '../api/axios';
 import leftArrowIcon from '../assets/left-arrow.svg';
 import rightArrowIcon from '../assets/right-arrow.svg';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const GearCard = ({ product }) => {
   const navigate = useNavigate();
@@ -27,16 +28,17 @@ const GearCard = ({ product }) => {
     </div>
     <div className="flex justify-between items-start pe-4">
       <div>
-        <h3 className="font-medium text-[15px]">{product.name || "Loading..."}</h3>
-        <p className="text-[#757575] text-[15px] max-w-[200px]">{product.description?.slice(0, 30)}...</p>
+        <h3 className="font-medium text-[15px] dark:text-white uppercase tracking-tighter">{product.name || "Loading..."}</h3>
+        <p className="text-[#757575] dark:text-gray-400 text-[15px] max-w-[200px]">{product.description?.slice(0, 30)}...</p>
       </div>
-      <p className="font-medium text-[15px] whitespace-nowrap">₹ {product.price}</p>
+      <p className="font-medium text-[15px] whitespace-nowrap dark:text-white">₹ {product.price}</p>
     </div>
     </motion.div>
   );
 };
 
 const GearUp = () => {
+  const { t } = useTranslation();
   const { data: products = [], isLoading, isError } = useQuery({
     queryKey: ['products', 'clothing'],
     queryFn: async () => {
@@ -45,51 +47,48 @@ const GearUp = () => {
     }
   });
 
-  // Split clothing into Men's and Women's based on description
   const mensClothing = products.filter(p => String(p.description).toLowerCase().includes('men')).slice(0, 4);
   const womensClothing = products.filter(p => String(p.description).toLowerCase().includes('women')).slice(0, 4);
 
   return (
     <div className="px-10 mb-20 text-[#111111]">
-      <h2 className="text-[22px] font-medium mb-6">Gear Up</h2>
+      <h2 className="text-[22px] font-medium mb-6 dark:text-white">{t('gear_up.title')}</h2>
       
       <div className="flex flex-col md:flex-row gap-10">
-        {/* Shop Men's */}
         <div className="flex-1 overflow-hidden">
           <div className="flex justify-end items-center mb-4 space-x-4">
-            <span className="text-[15px] font-medium">Shop Men's</span>
+            <span className="text-[15px] font-medium dark:text-white">{t('gear_up.shop_men')}</span>
             <div className="flex space-x-2">
-              <button className="bg-[#e5e5e5] p-3 rounded-full hover:bg-gray-300">
-                <img src={leftArrowIcon} alt="Previous" className="w-5 h-5" />
+              <button className="bg-[#e5e5e5] dark:bg-[#222] p-3 rounded-full hover:bg-gray-300 dark:hover:bg-[#333]">
+                <img src={leftArrowIcon} alt="Previous" className="w-5 h-5 dark:invert" />
               </button>
-              <button className="bg-[#e5e5e5] p-3 rounded-full hover:bg-gray-300">
-                <img src={rightArrowIcon} alt="Next" className="w-5 h-5" />
+              <button className="bg-[#e5e5e5] dark:bg-[#222] p-3 rounded-full hover:bg-gray-300 dark:hover:bg-[#333]">
+                <img src={rightArrowIcon} alt="Next" className="w-5 h-5 dark:invert" />
               </button>
             </div>
           </div>
           <div className="flex space-x-4 overflow-x-auto no-scrollbar pb-4">
-            {isLoading && <p>Loading men's gear...</p>}
-            {isError && <p>Error loading data.</p>}
+            {isLoading && <p className="dark:text-white">Loading...</p>}
+            {isError && <p className="dark:text-white">Error loading data.</p>}
             {!isLoading && !isError && mensClothing.map(item => <GearCard key={item.id} product={item} />)}
           </div>
         </div>
 
-        {/* Shop Women's */}
         <div className="flex-1 overflow-hidden">
           <div className="flex justify-end items-center mb-4 space-x-4">
-            <span className="text-[15px] font-medium">Shop Women's</span>
+            <span className="text-[15px] font-medium dark:text-white">{t('gear_up.shop_women')}</span>
             <div className="flex space-x-2">
-              <button className="bg-[#e5e5e5] p-3 rounded-full hover:bg-gray-300">
-                <img src={leftArrowIcon} alt="Previous" className="w-5 h-5" />
+              <button className="bg-[#e5e5e5] dark:bg-[#222] p-3 rounded-full hover:bg-gray-300 dark:hover:bg-[#333]">
+                <img src={leftArrowIcon} alt="Previous" className="w-5 h-5 dark:invert" />
               </button>
-              <button className="bg-[#e5e5e5] p-3 rounded-full hover:bg-gray-300">
-                <img src={rightArrowIcon} alt="Next" className="w-5 h-5" />
+              <button className="bg-[#e5e5e5] dark:bg-[#222] p-3 rounded-full hover:bg-gray-300 dark:hover:bg-[#333]">
+                <img src={rightArrowIcon} alt="Next" className="w-5 h-5 dark:invert" />
               </button>
             </div>
           </div>
           <div className="flex space-x-4 overflow-x-auto no-scrollbar pb-4">
-            {isLoading && <p>Loading women's gear...</p>}
-            {isError && <p>Error loading data.</p>}
+            {isLoading && <p className="dark:text-white">Loading...</p>}
+            {isError && <p className="dark:text-white">Error loading data.</p>}
             {!isLoading && !isError && womensClothing.map(item => <GearCard key={item.id} product={item} />)}
           </div>
         </div>

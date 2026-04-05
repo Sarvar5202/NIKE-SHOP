@@ -125,7 +125,7 @@ const AdminProducts = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
             <Form.Item name="name" label="Name" rules={[{ required: true, message: 'Please input the product name!' }]}>
-              <Input placeholder="Becent Air Max" />
+              <Input placeholder="NIKE Air Max" />
             </Form.Item>
             <Form.Item name="price" label="Price" rules={[{ required: true, message: 'Please input the price!' }]}>
               <Input type="number" placeholder="12000" />

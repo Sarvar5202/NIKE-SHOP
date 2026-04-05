@@ -4,13 +4,13 @@
 
 @layer base {
   body {
-    @apply bg-white text-black font-sans m-0 p-0 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100;
+    @apply bg-white text-black font-sans m-0 p-0 transition-colors duration-300 dark:bg-black dark:text-[#f5f5f5];
   }
 }
 
 @layer components {
   .app-container {
-    @apply font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] min-h-screen flex flex-col items-center dark:bg-gray-900;
+    @apply font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] min-h-screen flex flex-col items-center dark:bg-black;
   }
   
   .main-content {
@@ -18,7 +18,7 @@
   }
 
   .header-wrapper {
-    @apply h-[96px] w-full bg-white dark:bg-gray-800 flex items-center justify-between px-10 relative z-50 shadow-sm transition-colors;
+    @apply h-[96px] w-full bg-white dark:bg-[#0a0a0a] flex items-center justify-between px-10 relative z-50 shadow-sm transition-colors;
   }
 
   .header-nav {
@@ -30,7 +30,7 @@
   }
 
   .banner-message {
-    @apply bg-[#f5f5f5] dark:bg-gray-800 text-gray-900 dark:text-gray-100 w-full py-2 flex flex-col items-center justify-center border-b border-[#e5e5e5] dark:border-gray-700 transition-colors;
+    @apply bg-[#f5f5f5] dark:bg-[#111] text-gray-900 dark:text-[#eee] w-full py-2 flex flex-col items-center justify-center border-b border-[#e5e5e5] dark:border-[#222] transition-colors;
   }
 }
 
@@ -42,12 +42,11 @@
     width: 100%;
   }
 
-  /* Hide scrollbar for horizontal containers */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

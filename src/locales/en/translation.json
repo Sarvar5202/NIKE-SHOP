@@ -9,11 +9,86 @@
     "search": "Search"
   },
   "home": {
-    "hello": "Hello Becent App",
-    "download": "Download the app to access everything Becent. Get Your Great",
+    "hello": "Hello NIKE App",
+    "download": "Download the app to access everything NIKE. Get Your Great",
     "best_air_max": "Best of Air Max"
   },
+  "hero": {
+    "first_look": "First Look",
+    "title": "NIKE Air Max Pulse",
+    "description": "Extreme comfort. Hyper durable. Max volume. Introducing the Air Max Pulse —designed to push you past your limits and help you go to the max.",
+    "notify_me": "Notify Me",
+    "shop_air_max": "Shop Air Max"
+  },
+  "featured": {
+    "title": "Featured",
+    "promo_title": "Step Into What Feels Good",
+    "promo_description": "Cause everyone should know the feeling of running in that perfect pair.",
+    "find_your_shoe": "Find Your Shoe"
+  },
+  "gear_up": {
+    "title": "Gear Up",
+    "shop_men": "Shop Men's",
+    "shop_women": "Shop Women's"
+  },
+  "dont_miss": {
+    "title": "Don't Miss",
+    "promo_title": "Flight Essentials",
+    "promo_description": "Your built-to-last, all-week wears—but with style only Jordan Brand can deliver.",
+    "shop": "Shop"
+  },
+  "essentials": {
+    "title": "The Essentials",
+    "men": "Men's",
+    "women": "Women's",
+    "kids": "Kids'"
+  },
+  "footer": {
+    "find_store": "Find A Store",
+    "become_member": "Become A Member",
+    "signup_email": "Sign Up for Email",
+    "feedback": "Send Us Feedback",
+    "student_discounts": "Student Discounts",
+    "get_help": "Get Help",
+    "order_status": "Order Status",
+    "delivery": "Delivery",
+    "returns": "Returns",
+    "payment_options": "Payment Options",
+    "contact_inquiries": "Contact Us On NIKE.com Inquiries",
+    "contact_other": "Contact Us On All Other Inquiries",
+    "about": "About NIKE",
+    "news": "News",
+    "careers": "Careers",
+    "investors": "Investors",
+    "sustainability": "Sustainability",
+    "guides": "Guides",
+    "terms_sale": "Terms of Sale",
+    "terms_use": "Terms of Use",
+    "privacy_policy": "NIKE Privacy Policy"
+  },
+  "product": {
+    "mrp": "MRP",
+    "incl_taxes": "incl. of all taxes",
+    "duties": "(Also includes all applicable duties)",
+    "select_size": "Select Size",
+    "size_guide": "Size Guide",
+    "add_to_bag": "Add to Bag",
+    "favourite": "Favourite",
+    "buy_now": "Buy Now",
+    "related_title": "You Might Also Like",
+    "view_details": "View Product Details"
+  },
   "cart": {
-    "order_success": "Product ordered successfully!"
+    "bag": "Bag",
+    "empty": "Your bag is empty.",
+    "shop_new": "Shop New Arrivals",
+    "summary": "Summary",
+    "subtotal": "Subtotal",
+    "delivery_handling": "Estimated Delivery & Handling",
+    "total": "Total",
+    "checkout": "Member Checkout",
+    "checkout_processing": "Processing...",
+    "order_success": "Order placed successfully!",
+    "terms_agreement": "By completing your purchase you agree to NIKE's Terms of Service and Privacy Policy. Free shipping is applied to all member orders."
   }
 }

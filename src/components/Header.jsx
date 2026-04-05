@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import BecentLogo from '../assets/Becent-logo.svg';
+import NikeLogo from '../assets/Nike-logo.svg';
 import searchIcon from '../assets/search-icon.svg';
 import heartIcon from '../assets/heart-icon.svg';
 import bagIcon from '../assets/bag-icon.svg';
@@ -23,10 +23,9 @@ const Header = () => {
     <>
       <header className="header-wrapper">
         <Link to="/" className="flex items-center">
-          <img src={BecentLogo} alt="Logo" className="w-[60px] h-[60px] dark:invert" />
+          <img src={NikeLogo} alt="Logo" className="w-[60px] h-[60px] dark:invert" />
         </Link>
 
-        {/* Navigation Links */}
         <nav className="header-nav">
           <Link to="/" className="header-nav-link">{t('nav.new_featured')}</Link>
           <Link to="/" className="header-nav-link">{t('nav.men')}</Link>
@@ -36,7 +35,6 @@ const Header = () => {
           <Link to="/" className="header-nav-link">{t('nav.snkrs')}</Link>
         </nav>
 
-        {/* Actions (Search, Localization, Theme, Cart) */}
         <div className="flex items-center space-x-4">
           <div className="relative hidden md:flex items-center text-black">
             <img src={searchIcon} alt="Search" className="absolute left-3 w-5 h-5" />
@@ -48,13 +46,13 @@ const Header = () => {
           </div>
 
           <select 
-            className="hidden sm:block bg-transparent text-sm outline-none dark:text-gray-100 dark:bg-gray-800" 
+            className="hidden sm:block bg-transparent text-sm outline-none dark:text-gray-100 dark:bg-[#111] cursor-pointer" 
             onChange={handleLanguageChange} 
             defaultValue={i18n.language}
           >
-            <option value="uz">UZ</option>
-            <option value="ru">RU</option>
-            <option value="en">EN</option>
+            <option value="uz" className="dark:bg-black">UZ</option>
+            <option value="ru" className="dark:bg-black">RU</option>
+            <option value="en" className="dark:bg-black">EN</option>
           </select>
           
           <button onClick={toggleDarkMode} className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors text-xl">
@@ -66,12 +64,12 @@ const Header = () => {
           </button>
           <Link 
             to="/cart" 
-            className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors relative flex items-center justify-center"
-            title="View Bag"
+            className="p-2 hover:bg-gray-200 dark:hover:bg-[#222] rounded-full transition-colors relative flex items-center justify-center"
+            title={t('cart.bag')}
           >
             <img src={bagIcon} alt="Bag" className="w-6 h-6 dark:invert" />
             {items.reduce((acc, curr) => acc + (curr.quantity || 1), 0) > 0 && (
-              <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-gray-900">
+              <span className="absolute -top-1 -right-1 bg-black dark:bg-white text-white dark:text-black text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-black">
                 {items.reduce((acc, curr) => acc + (curr.quantity || 1), 0)}
               </span>
             )}
@@ -79,7 +77,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Top Banner Message */}
       <div className="banner-message">
         <span className="text-[15px] font-medium">{t('home.hello')}</span>
         <span className="text-[11px] underline font-medium cursor-pointer">{t('home.download')}</span>
